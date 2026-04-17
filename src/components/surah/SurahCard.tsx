@@ -12,7 +12,7 @@ type SurahCardProps = {
 const SurahCard = ({ id, englishName, arabicName, ayahCount, revelationType }: SurahCardProps) => {
   return (
     <Link
-      href={`/surah/${id}`}
+      href={`/surahs/${id}`}
       className="group relative block overflow-hidden rounded-4xl border border-base-300 bg-base-100 p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] transition-all duration-500 hover:-translate-y-2 hover:border-primary/40 hover:shadow-[0_20px_40px_rgba(15,118,110,0.1)]"
     >
       {/* Background Subtle Gradient Glow */}

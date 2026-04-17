@@ -6,3 +6,10 @@ export type Surah = {
   total_verses: number;
   type: string;
 };
+
+export type Verses = {
+  id: number;
+  text: string;
+  translation: string;
+  transliteration?: string;
+};

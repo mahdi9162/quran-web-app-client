@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import React from 'react';
 import Container from '../shared/Container';
-import SurahCard from '../shared/SurahCard';
 import { getAllSurahs } from '@/lib/quran-api';
+import SurahCard from '../surah/SurahCard';
 
 const FeaturedSurahs = async () => {
   // api call
@@ -11,7 +11,7 @@ const FeaturedSurahs = async () => {
   const featuredSurahs = surahs.slice(0, 6);
 
   return (
-    <section className="relative my-20 lg:my-30 px-3 lg:px-0">
+    <section className="relative my-20 lg:my-30">
       {/* Background glow */}
       <div className="absolute right-0 top-0 -z-10 h-64 w-64 bg-primary/5 blur-[100px]" />
 
