@@ -1,10 +1,15 @@
 import Link from 'next/link';
 import React from 'react';
-import { featuredSurahs } from '@/data/demo-surahs';
 import Container from '../shared/Container';
 import SurahCard from '../shared/SurahCard';
+import { getAllSurahs } from '@/lib/quran-api';
 
-const FeaturedSurahs = () => {
+const FeaturedSurahs = async () => {
+  // api call
+  const surahs = await getAllSurahs();
+
+  const featuredSurahs = surahs.slice(0, 6);
+
   return (
     <section className="relative my-20 lg:my-30 px-3 lg:px-0">
       {/* Background glow */}
@@ -52,16 +57,15 @@ const FeaturedSurahs = () => {
 
           {/* Grid Layout - More breathing space */}
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {featuredSurahs.map((surah, index) => (
-              <div key={surah.id} className={`transition-all duration-700 delay-[${index * 100}ms]`}>
-                <SurahCard
-                  id={surah.id}
-                  englishName={surah.englishName}
-                  arabicName={surah.arabicName}
-                  ayahCount={surah.ayahCount}
-                  revelationType={surah.revelationType}
-                />
-              </div>
+            {featuredSurahs.map((surah) => (
+              <SurahCard
+                key={surah.id}
+                id={surah.id}
+                englishName={surah.transliteration}
+                arabicName={surah.name}
+                ayahCount={surah.total_verses}
+                revelationType={surah.type}
+              />
             ))}
           </div>
 
