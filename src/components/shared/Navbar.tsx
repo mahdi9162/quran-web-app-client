@@ -2,9 +2,10 @@
 
 import React from 'react';
 import Container from './Container';
-import SearchBar from './SearchBar';
-import NavLink from './buttons/NavLink';
 import Logo from './Logo';
+import SearchBar from './SearchBar';
+import NavLink from '../buttons/NavLink';
+
 
 const Navbar = () => {
   const nav = (

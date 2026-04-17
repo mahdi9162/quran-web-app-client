@@ -1,12 +1,12 @@
 import React from 'react';
-import Container from './Container';
+import Container from '../shared/Container';
 import Link from 'next/link';
 
 const Hero = () => {
   return (
-    <section className="py-14 md:py-20">
+    <section className="mt-10 mb-20 lg:mb-40">
       <Container>
-        <div className="rounded-4xl border border-base-300 bg-base-100 p-8 shadow-lg md:p-14">
+        <div className="rounded-4xl border border-base-300 bg-base-100 px-3 py-8 shadow-lg md:p-14">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             {/* Left */}
             <div className="space-y-7">
@@ -15,12 +15,12 @@ const Hero = () => {
               </div>
 
               <div className="space-y-4">
-                <h1 className="text-2xl md:text-4xl lg:text-5xl font-extrabold leading-tight text-base-content ">
+                <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold leading-tight text-base-content ">
                   Read the Quran with
                   <span className="block text-primary">clarity & comfort</span>
                 </h1>
 
-                <p className="max-w-xl text-sm md:leading-8 text-base-content/70 md:text-lg">
+                <p className="max-w-xl text-sm md:leading-6 text-base-content/70 md:text-lg">
                   Explore all surahs, search verses instantly, and customize your reading experience with a modern distraction-free
                   interface.
                 </p>
