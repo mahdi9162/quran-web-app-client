@@ -8,7 +8,7 @@ const Hero = () => {
   return (
     <section className="mt-10 mb-20 lg:mb-20">
       <Container>
-        <div className="rounded-4xl border border-base-300 bg-base-100 py-8 shadow-lg md:p-14">
+        <div className="rounded-4xl border border-base-300 bg-base-100 px-3 py-8 shadow-lg md:p-14">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             {/* Left */}
             <div className="space-y-7">

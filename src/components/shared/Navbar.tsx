@@ -27,8 +27,8 @@ const Navbar = () => {
   );
 
   return (
-    <Container>
-      <div className="sticky top-0 z-50 border-b border-base-300 bg-base-100/90 backdrop-blur-md px-3">
+    <nav className="sticky top-0 z-50 border-b border-base-300 bg-base-100/90 backdrop-blur-md px-3">
+      <Container>
         <div className="navbar px-0 min-h-16">
           {/* left */}
           <div className="navbar-start gap-2">
@@ -47,8 +47,7 @@ const Navbar = () => {
 
             {/* brand */}
             <div className="flex items-center gap-3 text-xl md:text-2xl font-bold tracking-tight">
-              <Logo />
-              <p>Quran Web App</p>
+              <Logo pClassName="hidden md:block" />
             </div>
           </div>
 
@@ -60,13 +59,13 @@ const Navbar = () => {
           {/* right */}
           <div className="navbar-end">
             {/* settings button */}
-            <label htmlFor="settings-drawer" className="btn btn-primary">
+            <label htmlFor="settings-drawer" className="btn btn-primary btn-sm md:btn-lg">
               Settings
             </label>
           </div>
         </div>
-      </div>
-    </Container>
+      </Container>
+    </nav>
   );
 };
 

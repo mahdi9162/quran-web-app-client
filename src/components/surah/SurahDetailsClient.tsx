@@ -41,18 +41,18 @@ const SurahDetailsClient = ({ surah, arabicVerses, englishVerses }: SurahDetails
             </div>
 
             <div className="space-y-4">
-              <div className="space-y-2">
-                <h1 className="text-3xl font-bold text-base-content md:text-5xl">
+              <div className="flex justify-between space-y-2">
+                <h1 className="text-xl font-bold text-base-content md:text-5xl">
                   {surah.id}. {surah.transliteration}
                 </h1>
 
-                <h2 className="text-3xl font-semibold text-primary md:text-4xl font-arabic">{surah.name}</h2>
+                <h2 className="text-2xl font-semibold text-primary md:text-5xl font-arabic">{surah.name}</h2>
               </div>
 
               <div className="flex flex-wrap gap-2 md:gap-3">
-                <span className="badge badge-primary badge-lg">{surah.total_verses} Ayahs</span>
-                <span className="badge badge-outline badge-lg capitalize">{surah.type}</span>
-                {surah.translation && <span className="badge badge-outline badge-lg">{surah.translation}</span>}
+                <span className="badge badge-primary md:badge-lg">{surah.total_verses} Ayahs</span>
+                <span className="badge badge-outline md:badge-lg capitalize">{surah.type}</span>
+                {surah.translation && <span className="badge badge-outline md:badge-lg">{surah.translation}</span>}
               </div>
             </div>
           </div>
