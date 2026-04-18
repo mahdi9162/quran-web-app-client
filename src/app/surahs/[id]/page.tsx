@@ -10,6 +10,12 @@ type PageProps = {
   }>;
 };
 
+export async function generateStaticParams() {
+  return Array.from({ length: 114 }, (_, i) => ({
+    id: String(i + 1),
+  }));
+}
+
 const Surah = async ({ params }: PageProps) => {
   const { id } = await params;
   const surahId = Number(id);

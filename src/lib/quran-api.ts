@@ -17,7 +17,7 @@ export async function getAllSurahs(): Promise<Surah[]> {
 // Specific Surah
 export async function getSurahById(id: number): Promise<Surah> {
   const res = await fetch(`${BASE_URL}/api/surahs/${id}`, {
-    next: { revalidate: 3600 },
+    cache: 'force-cache',
   });
 
   if (!res.ok) throw new Error('Failed to fetch surah');
