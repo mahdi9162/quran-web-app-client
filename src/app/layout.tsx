@@ -4,6 +4,7 @@ import './globals.css';
 import Navbar from '@/components/shared/Navbar';
 import SettingsSidebar from '@/components/shared/SettingsSidebar';
 import { SettingsProvider } from '@/context/settings-context';
+import Footer from '@/components/shared/Footer';
 
 // Fonts-----------------------------
 
@@ -69,12 +70,14 @@ export default function RootLayout({
       ${scheherazade.variable}
       ${notoNaskh.variable}
       ${notoKufi.variable}
-      ${lateef.variable} h-full antialiased`}>
+      ${lateef.variable} h-full antialiased`}
+    >
       <body className="min-h-full flex flex-col">
         <SettingsProvider>
           <SettingsSidebar>
             <Navbar />
             <main className="flex-1">{children}</main>
+            <Footer />
           </SettingsSidebar>
         </SettingsProvider>
       </body>
