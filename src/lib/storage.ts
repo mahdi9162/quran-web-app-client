@@ -1,0 +1,1 @@
+export const READING_SETTINGS_KEY = 'quran-reading-settings';

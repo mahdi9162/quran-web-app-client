@@ -23,3 +23,4 @@ export type SearchResult = {
   translation: string;
   arabicText: string;
 };
+

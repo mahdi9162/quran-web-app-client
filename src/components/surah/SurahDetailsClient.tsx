@@ -3,6 +3,8 @@
 import Link from 'next/link';
 import React, { useMemo, useState } from 'react';
 import { Surah, Verses } from '@/types/quran';
+import { useReadingSettings } from '@/context/settings-context';
+import { arabicFontFamilies } from '@/lib/fonts';
 
 type SurahDetailsClientProps = {
   surah: Surah;
@@ -15,6 +17,10 @@ const LOAD_MORE_COUNT = 15;
 
 const SurahDetailsClient = ({ surah, arabicVerses, englishVerses }: SurahDetailsClientProps) => {
   const [visibleCount, setVisibleCount] = useState(INITIAL_COUNT);
+
+  const { settings } = useReadingSettings();
+
+  const selectedArabicFontFamily = arabicFontFamilies[settings.arabicFont as keyof typeof arabicFontFamilies];
 
   const visibleArabicVerses = useMemo(() => {
     return arabicVerses.slice(0, visibleCount);
@@ -62,11 +68,21 @@ const SurahDetailsClient = ({ surah, arabicVerses, englishVerses }: SurahDetails
                   <div className="flex items-center justify-between">
                     <span className="badge badge-secondary badge-md md:badge-lg">Ayah {ayah.id || index + 1}</span>
                   </div>
-
-                  <p className="text-right text-2xl leading-loose text-base-content md:text-4xl font-arabic">{ayah.text}</p>
-
+                  {/* Ayah */}
+                  <p
+                    className="text-right leading-loose text-base-content"
+                    style={{
+                      fontSize: `${settings.arabicFontSize}px`,
+                      fontFamily: selectedArabicFontFamily,
+                    }}
+                  >
+                    {ayah.text}
+                  </p>
+                  {/* Translation */}
                   <div className="border-t border-base-300 pt-4">
-                    <p className="text-sm md:leading-8 text-base-content/80 md:text-lg">{englishVerses[index]?.translation}</p>
+                    <p className="leading-8 text-base-content/80" style={{ fontSize: `${settings.translationFontSize}px` }}>
+                      {englishVerses[index]?.translation}
+                    </p>
                   </div>
                 </div>
               </article>

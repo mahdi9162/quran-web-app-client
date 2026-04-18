@@ -6,7 +6,6 @@ import Logo from './Logo';
 import SearchBar from './SearchBar';
 import NavLink from '../buttons/NavLink';
 
-
 const Navbar = () => {
   const nav = (
     <>
@@ -66,9 +65,9 @@ const Navbar = () => {
             </div>
 
             {/* settings button */}
-            <button className="btn btn-primary btn-sm md:btn-md" aria-label="Settings">
+            <label htmlFor="settings-drawer" className="btn btn-primary">
               Settings
-            </button>
+            </label>
           </div>
         </div>
 
