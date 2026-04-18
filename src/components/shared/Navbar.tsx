@@ -46,8 +46,9 @@ const Navbar = () => {
             </div>
 
             {/* brand */}
-            <div className="text-xl md:text-2xl font-bold tracking-tight">
+            <div className="flex items-center gap-3 text-xl md:text-2xl font-bold tracking-tight">
               <Logo />
+              <p>Quran Web App</p>
             </div>
           </div>
 
