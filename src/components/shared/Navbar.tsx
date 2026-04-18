@@ -3,7 +3,6 @@
 import React from 'react';
 import Container from './Container';
 import Logo from './Logo';
-import SearchBar from './SearchBar';
 import NavLink from '../buttons/NavLink';
 
 const Navbar = () => {
@@ -58,22 +57,12 @@ const Navbar = () => {
           </div>
 
           {/* right */}
-          <div className="navbar-end gap-2">
-            {/* desktop search */}
-            <div className="hidden md:block w-56 lg:w-72">
-              <SearchBar />
-            </div>
-
+          <div className="navbar-end">
             {/* settings button */}
             <label htmlFor="settings-drawer" className="btn btn-primary">
               Settings
             </label>
           </div>
-        </div>
-
-        {/* mobile search */}
-        <div className="pb-3 pt-3 md:hidden">
-          <SearchBar />
         </div>
       </div>
     </Container>

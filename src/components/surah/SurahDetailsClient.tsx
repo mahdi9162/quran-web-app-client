@@ -80,7 +80,7 @@ const SurahDetailsClient = ({ surah, arabicVerses, englishVerses }: SurahDetails
                   </p>
                   {/* Translation */}
                   <div className="border-t border-base-300 pt-4">
-                    <p className="leading-8 text-base-content/80" style={{ fontSize: `${settings.translationFontSize}px` }}>
+                    <p className="md:leading-8 text-base-content/80" style={{ fontSize: `${settings.translationFontSize}px` }}>
                       {englishVerses[index]?.translation}
                     </p>
                   </div>

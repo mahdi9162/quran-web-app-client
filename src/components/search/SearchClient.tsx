@@ -5,6 +5,8 @@ import { Search } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { SearchResult } from '@/types/quran';
+import { arabicFontFamilies } from '@/lib/fonts';
+import { useReadingSettings } from '@/context/settings-context';
 
 type SearchClientProps = {
   initialQuery: string;
@@ -30,6 +32,9 @@ const highlightText = (text: string, query: string) => {
 const SearchClient = ({ initialQuery, initialResults }: SearchClientProps) => {
   const router = useRouter();
   const [query, setQuery] = useState(initialQuery);
+
+  const { settings } = useReadingSettings();
+  const selectedArabicFontFamily = arabicFontFamilies[settings.arabicFont as keyof typeof arabicFontFamilies];
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -91,12 +96,20 @@ const SearchClient = ({ initialQuery, initialResults }: SearchClientProps) => {
                       <span className="badge badge-outline">Ayah {result.ayahNumber}</span>
                     </div>
 
-                    <p className="text-right text-2xl leading-loose text-base-content md:text-3xl font-arabic">
+                    <p
+                      className="text-right leading-loose text-base-content"
+                      style={{
+                        fontSize: `${settings.arabicFontSize}px`,
+                        fontFamily: selectedArabicFontFamily,
+                      }}
+                    >
                       {highlightText(result.arabicText, query)}
                     </p>
 
                     <div className="border-t border-base-300 pt-4">
-                      <p className="leading-8 text-base-content/80 md:text-lg">{highlightText(result.translation, query)}</p>
+                      <p className="leading-8 text-base-content/80" style={{ fontSize: `${settings.translationFontSize}px` }}>
+                        {highlightText(result.translation, query)}
+                      </p>
                     </div>
                   </div>
                 </Link>
