@@ -13,3 +13,13 @@ export type Verses = {
   translation: string;
   transliteration?: string;
 };
+
+export type SearchResult = {
+  id: number;
+  surahId: number;
+  surahName: string;
+  surahArabicName: string;
+  ayahNumber: number;
+  translation: string;
+  arabicText: string;
+};

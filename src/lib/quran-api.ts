@@ -1,4 +1,4 @@
-import { Surah } from '@/types/quran';
+import { SearchResult, Surah } from '@/types/quran';
 
 const BASE_URL = process.env.QURAN_API_BASE_URL;
 
@@ -37,15 +37,15 @@ export async function getSurahVerses(id: number) {
   return result.data;
 }
 
-export async function searchSurahs(query: string): Promise<Surah[]> {
-  const surahs = await getAllSurahs();
+export async function searchAyahs(query: string): Promise<SearchResult[]> {
+  if (!query.trim()) return [];
 
-  const normalizedQuery = query.toLowerCase().trim();
+  const res = await fetch(`${BASE_URL}/api/search?q=${encodeURIComponent(query)}`, {
+    cache: 'no-store',
+  });
 
-  return surahs.filter(
-    (surah) =>
-      surah.name.includes(query) ||
-      surah.transliteration.toLowerCase().includes(normalizedQuery) ||
-      surah.translation.toLowerCase().includes(normalizedQuery),
-  );
+  if (!res.ok) throw new Error('Failed to search ayahs');
+
+  const result = await res.json();
+  return result.data;
 }

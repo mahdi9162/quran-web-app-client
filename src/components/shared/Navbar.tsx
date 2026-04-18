@@ -19,7 +19,7 @@ const Navbar = () => {
       </li>
 
       <li>
-        <NavLink href="/surah/1">Read Quran</NavLink>
+        <NavLink href="/surahs">Read Quran</NavLink>
       </li>
 
       <li>
